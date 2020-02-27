@@ -15,6 +15,10 @@ ul li{
     padding: 5px 20px 5px 20px;
 }
 
+a:hover, a:visited, a:link, a:active{
+    text-decoration: none;
+}
+
 .fullBackground{
     background-position: center center;
     background-attachment: fixed;
@@ -69,7 +73,7 @@ h1{
 
 .cards>a>div>p{
     text-decoration: none;
-    font-family: 'Dancing Script','Quicksand';
+    font-family: 'Dancing Script';
     font-weight: 500;
     text-align: center;
     font-size: 30px;
