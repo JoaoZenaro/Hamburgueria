@@ -1,0 +1,124 @@
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Lato';
+}
+
+.nav-link{
+    font-size: 2vh;
+    color: darkslategrey !important;
+}
+
+ul li{
+    padding: 5px 20px 5px 20px;
+}
+
+.fullBackground{
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 1000%;
+}
+
+.box{
+    position: absolute;
+    margin-top: 100vh;
+    left: 10%;
+    width: 80%;
+    height: 900vh;
+    background-color: whitesmoke;
+    z-index: 1;
+    border-radius: 20px 20px 0px 0px;
+}
+
+h1{
+    font-family: 'Dancing Script';
+    padding:20px;
+    text-align: center;
+    border-bottom: 2px thistle solid;
+}
+
+.textoSobre{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding: 80px 50px 80px 50px;
+}
+
+#sobre{
+    padding: 20px 50px 0px 30px;
+}
+
+.cards{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.cards>a>div{
+    margin: 50px 25px 0px 25px;
+    border-radius: 20px;
+    width: 21vw;
+    height: 21vw;
+    transition: .2s ease-in-out;
+}
+
+.cards>a>div>p{
+    text-decoration: none;
+    font-family: 'Dancing Script','Quicksand';
+    font-weight: 500;
+    text-align: center;
+    font-size: 30px;
+    color: gainsboro;
+    background-color: rgba(110, 94, 94,0.5);
+}
+
+#card1{
+    background-image: url("../img/card1.png");
+}
+#card2{
+    background-image: url("../img/card2.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+#card3{
+    background-image: url("../img/card3.png");
+}
+#card4{
+    background-image: url("../img/card4.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+#card5{
+    background-image: url("../img/card5.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+#card6{
+    background-image: url("../img/card6.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.cards>a>div:hover{
+    text-decoration: none;
+    transform: scale(1.1);
+}
+
+
+footer{
+    height: 5vh;
+    width: 100%;
+    margin-top: 1000vh;
+    background-color: white;
+    position: absolute;
+    z-index: 1;
+}
