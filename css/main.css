@@ -79,6 +79,9 @@ h1{
 
 #card1{
     background-image: url("../img/card1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 #card2{
     background-image: url("../img/card2.png");
@@ -88,6 +91,9 @@ h1{
 }
 #card3{
     background-image: url("../img/card3.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 #card4{
     background-image: url("../img/card4.png");
