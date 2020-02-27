@@ -20,7 +20,6 @@ a:hover, a:visited, a:link, a:active{
 }
 
 .fullBackground{
-    background-position: center center;
     background-attachment: fixed;
     background-size: cover;
     position: absolute;
