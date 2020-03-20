@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,12 +18,15 @@
     <script src="js/fullclip.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-    <script src="js/main.js"></script>
 </head>
 <body>
+    <div id="loaderbg">
+        <div id="loader"></div>
+    </div>
+
     <header>
-        <nav class="d-flex justify-content-center fixed-top navbar navbar-expand-lg navbar-light" 
-        style="background-color: #ffffff;">
+      <nav id="navbar" class="d-flex justify-content-center fixed-top navbar navbar-expand-lg navbar-light" 
+        style="background-color: #ffffff; z-index: 1; transition: top 0.3s ease-in-out; border-bottom: .1vh solid #F9C03D;">
               <ul class="navbar-nav d-flex align-items-center">
                 <li class="nav-item">
                     <a class="navbar-brand" href="#">
@@ -30,19 +34,16 @@
                       </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">IfBurger</a>
-                </li>
-                <li class="nav-item">
                   <a class="nav-link" href="#cardapio">Cardápio</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Lugares</a>
+                  <a class="nav-link" href="#lugares">Lugares</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contato</a>
+                    <a class="nav-link" href="#suasaude">Sua saúde</a>
                   </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sua saúde</a>
+                    <a class="nav-link" href="#contato">Contato</a>
                   </li>
               </ul>
         </nav>
@@ -50,28 +51,33 @@
     <main>
 
         <div class="fullBackground"></div>
+        
         <div class="box">
           <h1>Quem somos?</h1>
           <div class="textoSobre">
-              <img src="img/logo.png" alt="">
-              <p id="sobre">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam maiores temporibus quaerat nemo voluptatem eos vitae itaque ab, sit saepe debitis doloremque deserunt eum cumque sint facilis reprehenderit sapiente non?Necessitatibus, quaerat voluptates! Dolores, repellendus odit laudantium id adipisci asperiores dolore saepe pariatur mollitia! Eum totam, enim magnam ex distinctio rerum et. Nobis ipsam soluta eum sint aut. Illo, est?</p>
+              <img src="img/logo.png" style="padding-top: 5vh; width: 15vw; display: flex; justify-content: center; margin: auto;">
+              <p id="sobre">
+                  A Hamburgueria IF é um site que oferece o serviço de entrega de hambúrgueres. Nele, através de um cardápio ilustrativo, o usuário pode escolher e comprar um hambúrguer.  
+
+                  Preocupado com a boa alimentação e saúde do seu cliente, além de trabalhar com produtos naturais, o site oferece informações sobre saúde, como:  as calorias presentes em seus produtos; alimentação saudável; e um aplicativo para o cálculo do Índice de Massa Córporea (IMC) do cliente.                  
+              </p>
           </div>
-         
-          
+
+          <h1 id="cardapio">Cardapio</h1>
           <div class="cards">
-          <a style="display: block;" href="">
+          <a style="display: block;" onclick="revela('descburg1',0);">
               <div id="card1">
                   <p>IF Basico<br>
                     R$ 20,00</p>
               </div>
           </a>
-          <a style="display: block;" href="">
+          <a style="display: block;" onclick="revela('descburg2',0);">
               <div id="card2">
                   <p>IF Duplo<br>
                     R$ 25,00</p>
               </div>
           </a>
-          <a style="display: block;" href="">
+          <a style="display: block;" onclick="revela('descburg3',0);">
               <div id="card3">
                   <p>IF Vegetal<br>
                     R$ 23,00</p>
@@ -79,32 +85,273 @@
           </a> 
           </div>
           <div class="cards">
-            <a style="display: block;" href="">
+            <a style="display: block;" onclick="revela('descburg4',0);">
                 <div id="card4">
                     <p>BUFFALO<br>
                       R$ 27,00</p>
                   </div>
             </a>
-            <a style="display: block;" href="">
+            <a style="display: block;" onclick="revela('descburg5',0);">
                 <div id="card5">
-                    <p>Frango<br>
+                    <p>IF Frango<br>
                       R$ 20,00</p>
                   </div>
             </a>
-            <a style="display: block;" href="">
+            <a style="display: block;" onclick="revela('descburg6',0);">
                 <div id="card6">
-                    <p>outro frango<br>
-                      R$ 20,00</p>
+                    <p>Burger IMPOSSIBLE<br>
+                      R$ 23,00</p>
                   </div>
             </a>
           </div>
 
+          <h1>Localizações</h1>
+          <div id="lugares" style="width: 100%; height: 100vh; background-color: whitesmoke;">
+
+
+          </div>
+
+          <h1>Sua sáude</h1>
+          <h2>O calculo do indice de massa corporal (IMC) nos diz se o peso que um individuo tem é ideal para sua altura. Calcule o seu!</h2>
+          <div class="suasaude" id="suasaude">
+            
+            <form action="" id="formulario">
+              <br>
+              <legend>Cálculo do IMC</legend><br>
+              
+              <label for="peso">Peso:</label><br>
+              <input type= "text"  name="peso" id="peso" placeholder="Digite seu peso"/><br>
+              
+              <label for="altura">Altura:</label><br>
+              <input type= "text"  name="altura" id="altura" placeholder="Digite sua altura"/><br>
+
+              <label for="resultado">Resultado:</label><br>
+              <input type="text" name="resultado" id="resultado" readonly><br><br>
+    
+              <a onclick="calcularIMC(); "class="btn btn-primary">Calcular</a><br>
+    
+            </form>
+
+            <table>
+                <tbody><tr> 
+                  <td>IMC</td>
+                  <td>Categoria</td>
+                </tr>
+                <tr>
+                  <td>abaixo de 16,00</td>
+                  <td>Baixo peso Grau III</td>
+                </tr>
+                <tr>
+                  <td>16,00 a 16,99</td>
+                  <td>Baixo peso Grau II</td>
+                </tr>
+                <tr> 
+                  <td>17,00 a 18.49</td>
+                  <td>Baixo peso Grau I</td>
+                </tr>
+                <tr> 
+                  <td>18,50 a 24,99</td>
+                  <td>Peso ideal</td>
+                </tr>
+                <tr> 
+                  <td>25,00 a 29,99</td>
+                  <td>Sobrepeso</td>
+                </tr>
+                <tr> 
+                  <td>30,00 a 34,99</td>
+                  <td>Obesidade Grau I</td>
+                </tr>
+                <tr> 
+                  <td>35,00 a 39,99</td>
+                  <td>Obesidade Grau II</td>
+                </tr>
+                <tr>
+                  <td>40,0 e acima</td>
+                  <td>Obesidade Grau III</td>
+                </tr>
+                </tbody></table>
+
+          </div>
+
+
+          <h1 id="contato">Entre em contato</h1>
+          <form id="formcontato">
+
+              <div class="form-group">
+                <label for="emailinput">Email</label>
+                <input type="email" class="form-control" id="emailinput" placeholder="nome@exemplo.com">
+              </div>
+  
+              <div class="form-group">
+                <label for="nomeinput">Nome</label>
+                <input type="text" class="form-control" id="nomeinput" placeholder="Digite aqui seu nome">
+              </div>
+          
+            <div class="form-group">
+              <label for="inputtel">Telefone</label>
+              <input type="text" class="form-control" id="inputtel" placeholder="(XX) X XXXX-XXXX">
+            </div>
+
+            <div class="form-group">
+              <label for="horarios">Em qual horario prefere ser atendido?</label>
+              <select class="form-control" id="horarios">
+                <option>Manhã</option>
+                <option>Tarde</option>
+                <option>Noite</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="mensagemform">Mensagem</label>
+              <textarea class="form-control" id="mensagemform" rows="5"></textarea>
+            </div>
+
+            <label class="msgnovidademail">Quero receber todas as novidades por e-mail.
+              <input type="checkbox">
+              <span class="msgnovspan"></span>
+            </label>
+
+            <button type="submit" class="btn btn-primary" id="formcontatobtn">Enviar</button>
+          </form>
 
         </div>
+
+
+
+        <div id="descburg1">
+            <img src="img/card1.png" alt="" style="width: 20%; display: flex; justify-content: center; margin: auto; margin-top: 5vh;">
+            <p style="text-align: center; font-size: 4vh;">IF BURGER BASICO <br> R$ 20,00</p>
+            <p style="text-align: center; font-size: 2vh;">Se você quiser algo barato mas com a experiência IF Hamburguer essa é a melhor opção</p>
+            <p style="text-align: center; font-size: 3vh;"> Do que ele é feito?</p>
+            <ul style="list-style-type: circle; margin-left: 40%;"> 
+              <li>Nem</li>
+              <li>a</li>
+              <li>gente</li>
+              <li>sabe</li>
+            </ul>
+            <button onclick="adiciona('If Basico - R$ 20,00');"
+             style="cursor: pointer; display: flex; justify-content: center; margin: auto; padding: 3vh 5vw 3vh 5vw; color: #ffffff; background-color: #F9C03D; border:none; border-radius: 5vh;">Eu quero!</button><br>
+            <a onclick="revela('descburg1',1)" class="descburgsair">Sair</a>
+          </div>
+
+          <div id="descburg2">
+              <img src="img/card2.png" alt="" style="width: 20%; display: flex; justify-content: center; margin: auto; margin-top: 5vh;">
+              <p style="text-align: center; font-size: 4vh;">IF BURGER DUPLO <br> R$ 25,00</p>
+              <p style="text-align: center; font-size: 2vh;">2X MAIS IF BURGUER!!</p>
+              <p style="text-align: center; font-size: 3vh;"> Do que ele é feito?</p>
+              <ul style="list-style-type: circle; margin-left: 40%;"> 
+                <li>Nem</li>
+                <li>a</li>
+                <li>gente</li>
+                <li>sabe</li>
+              </ul>
+              <button onclick="adiciona('If Duplo - R$ 25,00');"
+              style="cursor: pointer; display: flex; justify-content: center; margin: auto; padding: 3vh 5vw 3vh 5vw; color: #ffffff; background-color: #F9C03D; border:none; border-radius: 5vh;">Eu quero!</button><br>
+              <a onclick="revela('descburg2',1)" class="descburgsair">Sair</a>
+            </div>
+
+            <div id="descburg3">
+                <img src="img/card3.png" alt="" style="width: 20%; display: flex; justify-content: center; margin: auto; margin-top: 5vh;">
+                <p style="text-align: center; font-size: 4vh;">IF BURGER VEGETAL <br> R$ 23,00</p>
+                <p style="text-align: center; font-size: 2vh;">Uma opçaõ mais amigavel com os nossos amigos animais</p>
+                <p style="text-align: center; font-size: 3vh;"> Do que ele é feito?</p>
+                <ul style="list-style-type: circle; margin-left: 40%;"> 
+                  <li>Nem</li>
+                  <li>a</li>
+                  <li>gente</li>
+                  <li>sabe</li>
+                </ul>
+                <button onclick="adiciona('If Vegetal - R$ 23,00');"
+                style="cursor: pointer; display: flex; justify-content: center; margin: auto; padding: 3vh 5vw 3vh 5vw; color: #ffffff; background-color: #F9C03D; border:none; border-radius: 5vh;">Eu quero!</button><br>
+                <a onclick="revela('descburg3',1)" class="descburgsair">Sair</a>
+              </div>
+
+              <div id="descburg4">
+                  <img src="img/card4.png" alt="" style="width: 20%; display: flex; justify-content: center; margin: auto; margin-top: 5vh;">
+                  <p style="text-align: center; font-size: 4vh;">IF BURGER BUFFALO <br> R$ 27,00</p>
+                  <p style="text-align: center; font-size: 2vh;">Eai? Consegue encarar?</p>
+                  <p style="text-align: center; font-size: 3vh;"> Do que ele é feito?</p>
+                  <ul style="list-style-type: circle; margin-left: 40%;"> 
+                    <li>Nem</li>
+                    <li>a</li>
+                    <li>gente</li>
+                    <li>sabe</li>
+                  </ul>
+                  <button onclick="adiciona('If Buffalo - R$ 27,00');"
+                  style="cursor: pointer; display: flex; justify-content: center; margin: auto; padding: 3vh 5vw 3vh 5vw; color: #ffffff; background-color: #F9C03D; border:none; border-radius: 5vh;">Eu quero!</button><br>
+                  <a onclick="revela('descburg4',1)" class="descburgsair">Sair</a>
+                </div>
+
+                <div id="descburg5">
+                    <img src="img/card5.png" alt="" style="width: 20%; display: flex; justify-content: center; margin: auto; margin-top: 4vh;">
+                    <p style="text-align: center; font-size: 4vh;">IF BURGER FRANGO <br> R$ 20,00</p>
+                    <p style="text-align: center; font-size: 2vh;">Uma opção para os amantes de frango!</p>
+                    <p style="text-align: center; font-size: 3vh;"> Do que ele é feito?</p>
+                    <ul style="list-style-type: circle; margin-left: 40%;"> 
+                      <li>Nem</li>
+                      <li>a</li>
+                      <li>gente</li>
+                      <li>sabe</li>
+                    </ul>
+                    <button onclick="adiciona('If Frango - R$ 20,00');"
+                    style="cursor: pointer; display: flex; justify-content: center; margin: auto; padding: 3vh 5vw 3vh 5vw; color: #ffffff; background-color: #F9C03D; border:none; border-radius: 5vh;">Eu quero!</button><br>
+                    <a onclick="revela('descburg5',1)" class="descburgsair">Sair</a>
+                  </div>
+
+                  <div id="descburg6">
+                      <img src="img/card6.png" alt="" style="width: 20%; display: flex; justify-content: center; margin: auto; margin-top: 4vh;">
+                      <p style="text-align: center; font-size: 4vh;">IF BURGER IMPOSSIBLE <br> R$ 23,00</p>
+                      <p style="text-align: center; font-size: 2vh;">Feito com carnes 100% vetegais que são indistinguiveis de carnes animais</p>
+                      <p style="text-align: center; font-size: 3vh;"> Do que ele é feito?</p>
+                      <ul style="list-style-type: circle; margin-left: 40%;"> 
+                        <li>Nem</li>
+                        <li>a</li>
+                        <li>gente</li>
+                        <li>sabe</li>
+                      </ul>
+                      <button onclick="adiciona('If Impossible - R$ 23,00');"
+                      style="cursor: pointer; display: flex; justify-content: center; margin: auto; padding: 3vh 5vw 3vh 5vw; color: #ffffff; background-color: #F9C03D; border:none; border-radius: 5vh;">Eu quero!</button><br>
+                      <a onclick="revela('descburg6',1)" class="descburgsair">Sair</a>
+                    </div>
+
+        <div id="overlay">
+          <p style="font-family: 'Lato'; margin-top: 1vh; margin-bottom: 0px; text-align: center; color: #000; font-size: 2vh;">Pedidos</p>
+          <p id="sempedido" style="text-align: center; color: #000; margin: 0 2vw 0 2vw; font-size: 2vh; color: #838383;">Você não possui pedidos, para adiciona-los pressione o item no cardapio</p>
+          <ul id="carrinho"></ul>
+          <button id="fazpedido" onclick="abreFinalizar()">Realizar pedido</button>
+          <div id="totalpedidos">
+            <label for="total">Total:</label>
+            <input id="resulttotal" type="text" readonly>
+            <label>,00</label>
+          </div>
+          
+          
+        </div>
+
+
+        <div id="finalizar" class="overlayfinal">
+          <a style="float: right; margin: 5vh; font-size: 5vh; color: #000;"  href="javascript:void(0)" class="botaofechaoverlayfinal" onclick="fechaFinalizar()">&times;</a>
+          <div class="overlayfinalconteudo">
+            <h3 style="text-align: center; font-size: 6vh; color: white; margin-top: 10vh;">Tudo pronto?</h3>
+            <ul id="pedidosfinais"></ul>
+
+            <div style="margin: 5vh 40vw 2vh 40vw; position: absolute; bottom: 0;">
+              <label style="text-align: center; font-size: 4vh;" for="totalfinal">Total:</label>
+              <input style="width: 5vw; text-align: right; font-size: 4vh; border: none; background-color: transparent;" id="resulttotalfinal" type="text" readonly>
+              <label>,00</label>
+            </div>
+
+            <button id="btnfinalizar">Finalizar</button>
+          </div>
+        </div>
+
+
     </main>
+
     <footer>
-        <p style="padding: 10px; font-size: 14px; color: rgba(0, 0, 0, 0.5);">Copyright © 2020 IF Hamburger, Inc. All rights reserved. <u>Terms of Use.</u> | <u>Privacy Policy</u></p>
+        <p>Copyright © 2020 IF Hamburger, Inc. All rights reserved. <u>Terms of Use.</u> | <u>Privacy Policy</u></p>
     </footer>
+
 
     <script>
       $('.fullBackground').fullClip({
@@ -116,4 +363,5 @@
     
     
 </body>
+<script src="js/main.js"></script>
 </html>
